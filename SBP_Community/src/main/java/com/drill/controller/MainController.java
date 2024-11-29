@@ -35,12 +35,25 @@ public class MainController {
 	@PostMapping("/join")
 	@ResponseBody 
 	public ResUserDto<?> postJoin(@RequestBody User user) {
-		userService.join(user);
-		return new ResUserDto<>(
-				HttpStatus.OK.value(),
-				user.getUserid()
-				+ "회원가입 완료!" 
-				);
+		
+		User findUser = userService.getUser(user.getUserid()); 
+				
+		
+		if (findUser.getUserid() == null) {
+			userService.join(user);
+			return new ResUserDto<>(
+					HttpStatus.OK.value(),
+					user.getUserid()
+					+ "회원가입 완료!" 
+					);
+			
+		} else {
+			return new ResUserDto<>(
+					HttpStatus.BAD_REQUEST.value(), 
+					user.getUserid() + "는 사용중인 아이디입니다."
+					);
+		}
+		
 	}
 	
 	

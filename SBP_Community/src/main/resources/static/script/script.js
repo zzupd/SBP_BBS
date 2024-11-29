@@ -24,10 +24,10 @@ $(function(){
 				url: "/join",
 				data: JSON.stringify(user),
 				contentType: "application/json; charset=utf-8"
-			}).done(function(){
-				console.lgo(response);
+			}).done(function(response){
+				console.log(response);
 				//location="/";
-			}).fail(function(){
+			}).fail(function(error){
 				alert("에러 발생 : " + error);
 			});			
 			
