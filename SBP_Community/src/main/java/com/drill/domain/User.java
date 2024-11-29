@@ -25,11 +25,10 @@ import lombok.NoArgsConstructor;
 @Table(name="USER")
 public class User {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(nullable=false, length=30, unique=true)
 	private int num; 		// 일련번호
 	
-	@Column(nullable=false, length=30, unique=true)
+	@Id
 	private String userid;   // 아이디
 
 	@Column(nullable=false, length=30)

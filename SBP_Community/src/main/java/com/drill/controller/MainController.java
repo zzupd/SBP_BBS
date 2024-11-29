@@ -12,6 +12,8 @@ import com.drill.domain.User;
 import com.drill.dto.ResUserDto;
 import com.drill.svc.UserService;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class MainController {
 	
@@ -57,6 +59,77 @@ public class MainController {
 	}
 	
 	
+	// 로그인 입력양식
+	@GetMapping("/login")
+	public String login() {
+		return "/user/login";
+	}
+	
+	
+	// 로그인 처리
+	@PostMapping("/login")
+	@ResponseBody
+	public ResUserDto<?> postLogin(@RequestBody User user, HttpSession session) {
+		
+		User findUser = userService.getUser(user.getUserid());
+		
+		if (findUser.getUserid() == null) {
+			
+	
+			// 아이디 없음
+			return new ResUserDto<>(
+					HttpStatus.BAD_REQUEST.value(), 
+					"로그인 정보를 확인하세요"
+					);
+		} else {
+			
+			
+			if (user.getPassword().equals(findUser.getPassword())) {
+				
+				// 로그인 정상 처리
+				session.setAttribute("sid", findUser);
+				session.setMaxInactiveInterval(300);
+				return new ResUserDto<>(
+						HttpStatus.OK.value(),
+						
+						findUser.getUserid() + " 로그인 중!"
+						);	
+			} else {
+				// 비밀번호 틀림
+				return new ResUserDto<>(
+						HttpStatus.BAD_REQUEST.value(),
+						
+						"로그인 정보를 확인하세요"
+						);	
+			}
+			
+			
+		}	
+		
+	}
+	
+	// 인터셉션
+	
+	
+	// 로그아웃
+	@GetMapping("/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		return "redirect:/";
+	}
+	
+	
 	
 	
 }
+
+
+
+
+
+
+
+
+
+
+

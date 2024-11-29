@@ -66,8 +66,49 @@ form#joinForm {
 /*  회원가입 페이지 끝 */
 
 
+/*  로그인 페이지 시작 */
+form#loginForm {
+	width: 260px;
+	margin: 10px auto;
+}
+#loginForm input,
+#loginForm button {
+	width: 100%;
+	font-size: 17px;
+	padding: 6px 14px;
+}
+#loginForm div.loginFormInnerDiv {
+	margin-bottom: 10px;
+}
 
 
+/*  로그인 페이지 끝 */
+
+
+
+/* 글쓰기 시작 */
+form#writeForm {
+	width: 100%;
+	margin: 10px auto;
+}
+
+#writeForm input,
+#writeForm button {
+	width: 100%;
+	font-size: 17px;
+	padding: 6px 14px;
+}
+
+#writeForm div.writeFormInnerDiv {
+	margin-bottom: 10px;
+}
+#writeForm textarea {
+	width: 100%;
+	height: 120px;
+	font-size: 17px;
+	padding: 6px 14px;
+}
+/* 글쓰기 끝 */
 
 
 
