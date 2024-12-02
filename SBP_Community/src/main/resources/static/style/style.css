@@ -19,6 +19,9 @@ header#headerWrap nav#gnb {
 	border: 1px solid #000;
 	margin: 0 10px;
 }
+#headerWrap #gnb li.mainLi a {
+	text-decoration: none;
+}
 #headerWrap #gnb li.mainLi:hover a {
 	font-weight: bold;
 }
@@ -166,6 +169,16 @@ div#listArea {
 #listArea div.listRow:hover {
 	background-color: rgba(136, 136, 136, 0.1);
 }
+
+
+
+/*/ 페이지네이션 시작 /*/
+
+/*/ 페이지네이션 끝 /*/
+div#listArea ul.pagination {
+	margin-top: 20px;
+}
+
 /* 글목록 끝 */
 
 
