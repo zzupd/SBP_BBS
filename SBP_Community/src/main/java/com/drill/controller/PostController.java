@@ -3,6 +3,7 @@ package com.drill.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,12 +36,20 @@ public class PostController {
 			HttpSession session
 			) {
 		User sid = (User)session.getAttribute("sid");
+		System.out.println("sid : " + sid);
 		post.setUser(sid);
 		postService.write(post);
 		return new ResUserDto<>(
 					HttpStatus.OK.value(),
 					"등록완료!"
 				);
+	}
+	
+	// 글목록
+	@GetMapping("/list")
+	public String postList(Model model) {
+		model.addAttribute("postList", postService.getList());
+		return "post/list";
 	}
 	
 	

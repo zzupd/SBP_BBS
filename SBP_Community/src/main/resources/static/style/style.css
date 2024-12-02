@@ -112,6 +112,67 @@ form#writeForm {
 
 
 
+/* 글목록 시작 */
+div#listArea {
+	width: 100%;
+	margin: 10px auto;
+}
+#listArea div.listHeader {
+	font-weight: bold;
+	text-align: center;
+	background-color: rgba(0, 128, 255, 0.1);
+}
+#listArea div.listColumn {
+	padding: 10px 6px;
+}
+
+#listArea div.listColumn span:nth-child(1) {
+	width: 40px;
+}
+#listArea div.listColumn span:nth-child(2) {
+	flex:1;
+}
+#listArea div.listColumn span:nth-child(3) {
+	width: 90px;
+}
+#listArea div.listColumn span:nth-child(4) {
+	width: 70px;
+}
+#listArea div.listColumn span:nth-child(5) {
+	width: 100px;
+}
+
+
+
+#listArea div.listRow span:nth-child(1) {
+	text-align: center;
+}
+#listArea div.listRow span:nth-child(2) {
+	padding-left: 20px;
+}
+#listArea div.listRow span:nth-child(3) {
+	text-align: center;
+}
+#listArea div.listRow span:nth-child(4) {
+	text-align: center;
+}
+#listArea div.listRow span:nth-child(5) {
+	text-align: right;
+}
+
+#listArea div.listRow {
+	border-bottom: 1px solid #aaa;
+}
+#listArea div.listRow:hover {
+	background-color: rgba(136, 136, 136, 0.1);
+}
+/* 글목록 끝 */
+
+
+
+
+
+
 
 
 
